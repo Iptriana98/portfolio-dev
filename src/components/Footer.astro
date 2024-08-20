@@ -1,4 +1,6 @@
 ---
+import Mail from "../icons/Mail.astro"
+
 const currentYear = new Date().getFullYear()
 ---
 
@@ -8,20 +10,16 @@ const currentYear = new Date().getFullYear()
   <div
     class="rounded-lg w-full max-w-screen-xl mx-auto md:flex md:items-center md:justify-between py-4"
   >
-    <span class="text-sm sm:text-center text-zinc-800/90 dark:text-zinc-200/90"
+    <span class="ml-4 text-sm sm:text-center text-zinc-800/90 dark:text-zinc-200/90"
       >© {currentYear}
-      <a href="https://midu.dev/" class="hover:underline">midudev</a>. Casi
-      todos los derechos reservados
+      <a href="" class="hover:underline">Ibrakd</a>. All rights reserved.
     </span>
     <ul
-      class="flex flex-wrap items-center mt-3 text-sm font-medium dark:text-white/90 sm:mt-0"
+      class="flex flex-wrap items-center mx-4 mt-3 text-sm font-medium text-zinc-800/90 dark:text-zinc-200/90 sm:mt-0"
     >
       <li>
-        <a href="/#sobre-mi" class="hover:underline me-4 md:me-6">Sobre mí</a>
-      </li>
-      <li>
-        <a id="contacto" href="mailto:miduga@gmail.com" class="hover:underline"
-          >Contacto</a
+        <a id="contact" href="mailto:iptrianaa@gmail.com" class="hover:underline">
+          <Mail class="size-6 mr-2 inline" /> iptrianaa@gmail.com</a
         >
       </li>
     </ul>
