@@ -13,13 +13,8 @@ const navItems = [
     url: "/#projects",
   },
   {
-    title: "Education",
-    label: "education",
-    url: "/#education",
-  },
-  {
-    title: "About me",
-    label: "About me",
+    title: "About",
+    label: "about-me",
     url: "/#about-me",
   },
   {
@@ -73,7 +68,7 @@ const navItems = [
     const observer = new IntersectionObserver(callback, {
       root: null,
       rootMargin: "0px",
-      threshold: 0.3,
+      threshold: 0.5,
     });
 
     sections.forEach((section) => {
