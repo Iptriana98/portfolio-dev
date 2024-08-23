@@ -1,91 +1,161 @@
-
 ---
-import GitHub from "../icons/GitHub.astro"
-import NextJS from "../icons/NextJS.astro"
-import Tailwind from "../icons/Tailwind.astro"
-import Link from "../icons/Link.astro"
-import LinkButton from "./LinkButton.astro"
+import GoogleMaps from "../icons/GoogleMaps.astro";
+import React from "../icons/React.astro";
+import Kotlin from "../icons/Kotlin.astro";
+import Firebase from "../icons/Firebase.astro";
+import Android from "../icons/Android.astro";
+import GitHub from "../icons/GitHub.astro";
+import Swift from "../icons/Swift.astro";
+import Tailwind from "../icons/Tailwind.astro";
+import Link from "../icons/Link.astro";
+import LinkButton from "./LinkButton.astro";
+import LinkInline from "./LinkInline.astro";
 
 const TAGS = {
-  NEXT: {
-    name: "Next.js",
-    class: "bg-black text-white",
-    icon: NextJS,
+  ANDROID: {
+    name: "Android",
+    class: "bg-[#009900] text-white",
+    icon: Android,
+  },
+  FIREBASE: {
+    name: "Firebase",
+    class: "bg-[#ff3333] text-white",
+    icon: Firebase,
+  },
+  KOTLIN: {
+    name: "Kotlin",
+    class: "bg-[#aa00ff] text-white",
+    icon: Kotlin,
+  },
+  REACT: {
+    name: "React",
+    class: "bg-[#61dafb] text-black",
+    icon: React,
+  },
+  REACT_NATIVE: {
+    name: "React Native",
+    class: "bg-[#0000e6] text-white",
+    icon: React,
+  },
+  SWIFT: {
+    name: "Swift",
+    class: "bg-[#ff9933] text-white",
+    icon: Swift,
   },
   TAILWIND: {
     name: "Tailwind CSS",
     class: "bg-[#003159] text-white",
     icon: Tailwind,
   },
-}
+  GOOGLE_MAPS: {
+    name: "Google Maps",
+    class: "bg-[#ff9933] text-white",
+    icon: GoogleMaps,
+  },
+};
 const PROJECTS = [
   {
-    title: "SVGL - A beautiful library with SVG logos",
+    title: "Voyage - exploring the world's most exciting tourist destinations",
     description:
-      "Biblioteca de logos SVG de las marcas más populares. +10k visitas al mes. +2K svgs descargados. Creado desde cero con Next.js, React y Tailwind CSS.",
-    link: "https://svgl.vercel.app/",
-    github: "https://github.com/pheralb/svgl",
-    image: "/projects/svgl.webp",
-    tags: [TAGS.NEXT, TAGS.TAILWIND],
+      "Whether you're looking for hidden gems or popular attractions, this app provides detailed information, stunning photos, and user reviews to help you choose the perfect getaway.",
+    github: "https://github.com/Iptriana98/Voyage",
+    image: "./projects/voyage-banner.webp",
+    tags: [TAGS.ANDROID, TAGS.KOTLIN, TAGS.GOOGLE_MAPS],
   },
   {
-    title: "AdventJS - Retos de programación con JavaScript y TypeScript",
+    title: "ShareMe - share your best moments",
     description:
-      "Plataforma gratuita con retos de programación. Más de 1 millón de visitas en un mes. +50K retos completados. Creada desde cero con Next.js, React y Tailwind CSS.",
-    link: "https://adventjs.dev",
-    image: "/projects/adventjs.webp",
-    tags: [TAGS.NEXT, TAGS.TAILWIND],
+      "Project created for the community, it is a free social network developed from scratch with educational purposes, implementing the best programming practices to ensure a safe and efficient experience.",
+    github: "https://github.com/Iptriana98/shareme",
+    link: "https://mesharejsm.netlify.app/",
+    image: "./projects/share-me.webp",
+    tags: [TAGS.REACT, TAGS.REACT_NATIVE, TAGS.TAILWIND, TAGS.FIREBASE],
   },
-]
+  {
+    title: "Little Lemon - your favorite meal at a click away",
+    description:
+      "Example of multiplatform app for food ordering, using jetpack compose, KMM, and Swift. This is the final project of Android Developer Professional Certificate for Meta Program",
+    github: "https://github.com/Iptriana98/little-lemon",
+    image: "./projects/little-lemon.webp",
+    tags: [TAGS.ANDROID, TAGS.KOTLIN, TAGS.SWIFT],
+  },
+];
 ---
 
 <div class="flex flex-col gap-y-16">
   {
     PROJECTS.map(({ image, title, description, tags, link, github }) => (
-    <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
-  <div class="w-full md:w-1/2">
-    <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
-      <img alt="Recién llegado vs 5 años en Nueva Zelanda" class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105" loading="lazy" src={image} />
-    </div>
-  </div>
+      <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
+        <div class="w-full md:w-1/2">
+          <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
+            <img
+              alt={title}
+              class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105"
+              loading="lazy"
+              src={image}
+            />
+          </div>
+        </div>
 
-  <div class="w-full md:w-1/2 md:max-w-lg">
-    <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100">
-      {title}
-    </h3>
-    <div class="flex flex-wrap mt-2">
-      <ul class="flex flex-row mb-2 gap-x-2">
-          {tags.map((tag) => (
-            <li>
-              <span
-                class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}
-              >
-                <tag.icon class="size-4" />
-                {tag.name}
-              </span>
-            </li>
-          ))}
-        </ul>
+        <div class="w-full md:w-1/2 md:max-w-lg">
+          <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100">
+            {title}
+          </h3>
+          <div class="flex flex-wrap mt-2">
+            <ul class="flex flex-wrap mb-2 gap-2">
+              {tags.map((tag) => (
+                <li>
+                  <span
+                    class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}
+                  >
+                    <tag.icon class="size-4" />
+                    {tag.name}
+                  </span>
+                </li>
+              ))}
+            </ul>
 
-      <div class="mt-2 text-gray-700 dark:text-gray-400">{description}</div>
-      <footer class="flex items-end justify-start mt-4 gap-x-4">
-          {github && (
-            <LinkButton href={github}>
-              <GitHub class="size-6" />
-              Code
-              
-            </LinkButton>
-          )}
-          {link && (
-            <LinkButton href={link}>
-              <Link class="size-4" />
-              Preview
-            </LinkButton>
-          )}
-        </footer>
-    </div>
-  </div>
-</article>
+            <div class="mt-2 text-gray-700 dark:text-gray-400">
+              {description}
+            </div>
+            <footer class="flex items-end justify-start mt-4 gap-x-4">
+              {github && (
+                <LinkButton href={github}>
+                  <GitHub class="size-6" />
+                  Code
+                </LinkButton>
+              )}
+              {link && (
+                <LinkButton href={link}>
+                  <Link class="size-4" />
+                  Preview
+                </LinkButton>
+              )}
+            </footer>
+          </div>
+        </div>
+      </article>
     ))
   }
+
+<LinkInline href="https://github.com/Iptriana98?tab=repositories">
+  See more{" "}
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    class="w-5 icon icon-tabler icon-tabler-chevron-right"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    stroke-width="2"
+    stroke="currentColor"
+    fill="none"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <>
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M9 6l6 6l-6 6" />
+    </>
+  </svg>
+</LinkInline>
 </div>
