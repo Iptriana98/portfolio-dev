@@ -1,34 +1,56 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
-import Badge from "../components/Badge.astro";
+import Layout from "../layouts/Layout.astro"
+
+import AboutMe from "../components/AboutMe.astro"
+import Briefcase from "../icons/Briefcase.astro"
+import CodeIcon from "../icons/Code.astro"
+import Experience from "../components/Experience.astro"
+import ProfileCheck from "../icons/ProfileCheck.astro"
+import Projects from "../components/Projects.astro"
+import SectionContainer from "../components/SectionContainer.astro"
+import Hero from "../components/Hero.astro"
 ---
 
 <Layout
-  title="Porfolio de midudev - Desarrollador y Programador Web con 15 años de experiencia"
-  description="Contrata a midudev para crear tu aplicación web o móvil. Desarrollador Web y Creador de Contenido. Especializado en crear aplicaciones únicas."
+  title="Ibrahin Perez - Software Engineer | Web & Mobile Developer"
+  description="Portfolio of Ibrahin Perez, a software engineer with 5+ years of experience in web and mobile app development. Specializing in scalable solutions and unique user experiences. Based in Texas, USA."
 >
   <main class="px-4">
-    <section class="w-full mx-auto lg:w-[740px] py-44">
-      <img
-        class="rounded-full w-12 h-12 mb-8"
-        src="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50"
-        alt=""
-      />
-      <h1 class="text-white text-5xl font-bold flex flex-row gap-x-4 pb-10">
-        Hi, I'm Midudev 👋
-        <a href="https://github.com/midudev" target="_blank" class="ml-5">
-          <Badge>Open to Work</Badge>
-        </a>
-      </h1>
+    <SectionContainer class="py-16 md:py-24">
+      <Hero>
+      </slot>
+    </Hero>
+    </SectionContainer>
+    <div class="space-y-24">
+    <SectionContainer id="experience">
+      <h2
+        class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white"
+      >
+        <Briefcase class="size-8" />
+        Professional Experience
+      </h2>
+      <Experience />
+    </SectionContainer>
 
-      <p class="text-2xl text-center opacity-80">
-        I'm a full-stack developer with 15 years of experience, currently
-        working at
-        <a href="https://midu.dev">midudev</a>.
-      </p>
+    <SectionContainer id="projects">
+      <h2
+        class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white"
+      >
+        <CodeIcon class="size-7" />
+        Projects
+      </h2>
+      <Projects />
+    </SectionContainer>
 
-      <ul></ul>
-    </section>
+    <SectionContainer id="about-me">
+      <h2
+        class="flex items-center mb-6 text-3xl font-semibold gap-x-8 text-black/80 dark:text-white"
+      >
+        <ProfileCheck class="size-8" />
+        About Me
+      </h2>
+      <AboutMe />
+    </SectionContainer>
+  </div>
   </main>
 </Layout>
