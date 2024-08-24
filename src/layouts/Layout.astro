@@ -1,16 +1,16 @@
 ---
-import "@fontsource-variable/onest"
+import "@fontsource-variable/onest";
 
-import Header from "../components/Header.astro"
-import Footer from "../components/Footer.astro"
-import { ViewTransitions } from "astro:transitions"
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { ViewTransitions } from "astro:transitions";
 
 interface Props {
-  title: string
-  description: string
+  title: string;
+  description: string;
 }
 
-const { description, title } = Astro.props
+const { description, title } = Astro.props;
 ---
 
 <!doctype html>
@@ -25,8 +25,20 @@ const { description, title } = Astro.props
     <ViewTransitions />
   </head>
 
-  <body class="relative dark:text-white">
-    <div class="absolute top-0 z-[-2] h-screen w-screen bg-neutral-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"></div>
+  <body class="relative text-black dark:text-white">
+    <div class="absolute top-0 bottom-0 -z-10 h-full w-full bg-white dark:bg-gray-950">
+      <!-- Fondo para modo claro -->
+      <div
+        class="absolute bottom-auto left-auto right-0 top-0 h-[500px] w-[500px] -translate-x-[30%] translate-y-[20%] rounded-full bg-[rgba(173,109,244,0.5)] opacity-50 blur-[80px] dark:hidden"
+      ></div>
+    
+      <!-- Fondo para modo oscuro -->
+      <div
+        class="hidden dark:block absolute top-0 bottom-0 z-[-2] min-h-screen w-full
+        bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(217,216,255,0.5),rgba(255,255,255,0.9))]
+        dark:bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"
+      ></div>
+    </div>
     <Header />
     <slot />
     <Footer />
@@ -41,6 +53,8 @@ const { description, title } = Astro.props
       }
 
       body {
+        margin: 0; /* Asegúrate de que no haya margen */
+        padding: 0; /* Asegúrate de que no haya relleno */
         color: rgba(17, 17, 17, 0.9);
         display: flex;
         flex-direction: column;
